@@ -8,6 +8,8 @@ import {indexRouter} from './routes/index.js';
 import {userRouter} from './routes/users.js';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import { env } from './config/index.js';
+import './database/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -43,6 +45,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.listen(3000, ()=>{
+app.listen(env.PORT, ()=>{
   console.info("server running on port 3000")
 })
